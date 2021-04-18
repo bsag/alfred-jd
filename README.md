@@ -13,7 +13,7 @@ The search workflow provides different ways of acting on the results, such as op
 
 ## Requirements
 
-The workflow requires macOS, the [Alfred Powerpack](https://www.alfredapp.com/powerpack/), and Alfred 4.0 or higher.
+The workflow requires macOS, the [Alfred Powerpack](https://www.alfredapp.com/powerpack/), and Alfred 4.0 or higher. Currently, the workflow only handles Johnny.Decimal systems using the standard `AC.ID` structure, not `PRO.AC.ID` (see this explanation of [multiple project systems](https://johnnydecimal.com/concepts/multiple-projects/)). I hope to enable working with either structure in future updates.
 
 ## Install
 
@@ -28,7 +28,7 @@ The final step in setting things up is to select this workflow in the sidebar of
 
 ## Update
 
-In progress...
+As of v0.3.0, the workflow should check for updates and be able to update itself to the latest release. If the version of the workflow is older than the newest release available here, it will show a message. Hitting return on that message should update the workflow.
 
 ## Contributing
 

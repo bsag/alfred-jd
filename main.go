@@ -13,12 +13,11 @@ import (
 	"flag"
 
 	aw "github.com/deanishe/awgo"
+	"github.com/deanishe/awgo/update"
 )
 
 var (
-	// Our Workflow object
-	wf *aw.Workflow
-
+	query string
 	// Icons
 	updateAvailable = &aw.Icon{Value: "icons/update-available.png"}
 	areaIcon        = &aw.Icon{Value: "icons/area.png"}
@@ -26,13 +25,19 @@ var (
 	idIcon          = &aw.Icon{Value: "icons/id.png"}
 	newIdIcon       = &aw.Icon{Value: "icons/newid.png"}
 
+	repo = "bsag/alfred-jd"
+
 	// command line arguments
 	doAction, getLevel, catFolder string
+
+	// Our Workflow object
+	wf *aw.Workflow
 )
 
 func init() {
-	// Initialise workflow
-	wf = aw.New()
+	// Initialise workflow and set up update mechanism
+	wf = aw.New(update.GitHub(repo), aw.HelpURL(repo+"/issues"))
+
 	// command line flags
 	flag.StringVar(&doAction, "action", "", "choose action")
 	flag.StringVar(&getLevel, "level", "", "choose level")
@@ -41,6 +46,8 @@ func init() {
 
 // run executes the Script Filter.
 func run() {
+	wf.Args() // call to handle magic actions
+
 	// ----------------------------------------------------------------
 	// Parse command-line flags and decide what to do
 

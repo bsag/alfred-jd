@@ -859,7 +859,7 @@ Please post any bugs or feature requests on the GitHub repo ❤️.</string>
 		<string>JD_DIR</string>
 	</array>
 	<key>version</key>
-	<string>0.2.0</string>
+	<string>0.3.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/bsag/alfred-jd</string>
 </dict>
