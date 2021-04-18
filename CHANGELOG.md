@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.3.1
+
+2021-04-18
+
+- New ID folder action now shows full path of folder that will be created
+- I need a new release to test the update mechanism!
+
 ## v0.3.0
 
 2021-04-18

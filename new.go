@@ -3,11 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 	"path/filepath"
 	"regexp"
 	"strconv"
+	"strings"
 )
-
 
 func parseCatOrID(folderName string, cat bool) (num int64) {
 	// if cat is true, we want to get only the AC component
@@ -45,8 +46,8 @@ func getNextIdx(files []file, folderName string) (jdx string) {
 		jid := fmt.Sprintf("%02d.%02d ", ac, 1)
 		return jid
 	} else {
-	last := filepath.Base(files[len(files)-1].Path) // get the path of the last file, numerically sorted
-		lastid := parseCatOrID(last, false) // find ID component only
+		last := filepath.Base(files[len(files)-1].Path) // get the path of the last file, numerically sorted
+		lastid := parseCatOrID(last, false)             // find ID component only
 
 		if lastid >= 99 {
 			wf.Warn("You already have 99 IDs", "You may want to split up this category.")
@@ -58,6 +59,10 @@ func getNextIdx(files []file, folderName string) (jdx string) {
 
 }
 
+func prettyPath(path string) string {
+	return strings.ReplaceAll(path, os.Getenv("HOME"), "~")
+}
+
 func labelFolder(catFolder, query string) {
 
 	// get the foldername without path for display
@@ -67,10 +72,11 @@ func labelFolder(catFolder, query string) {
 	files := readDir(catFolder)
 	// get the next index number: returns an AC.ID string
 	idx := getNextIdx(files, folderName)
+	pPath := prettyPath(catFolder) + "/" + idx + query
 	newFolderName := idx + query
 
 	wf.NewItem("Enter name for item folder within "+folderName).
-		Subtitle("New folder name: " + newFolderName).
+		Subtitle("New folder path: "+pPath).
 		Arg(filepath.Join(catFolder, newFolderName)).
 		Valid(true).
 		Var("fpath", catFolder).
