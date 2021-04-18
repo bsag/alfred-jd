@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.3.2
+
+2021-04-18
+
+- Updater now working (it only considers non-pre-release versions).
+- Workflow bundle id changed to match the workflow name better
+
 ## v0.3.1
 
 2021-04-18
