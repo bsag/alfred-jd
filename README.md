@@ -18,7 +18,7 @@ The workflow requires macOS, the [Alfred Powerpack](https://www.alfredapp.com/po
 ## Install
 
 1. Download the workflow from [GitHub releases](../../releases/latest), and double click it to install in Alfred.
-2. If you are using macOS Catalina or Big Sur, you will probably get a warning about 'unsigned binaries'. See the instructions [here](https://github.com/deanishe/awgo/wiki/Catalina** to fix the permissions and allow Alfred to run the Go binary. You should only have to do this once.
+2. If you are using macOS Catalina or Big Sur, you will probably get a warning about 'unsigned binaries'. See the instructions [here](https://github.com/deanishe/awgo/wiki/Catalina) to fix the permissions and allow Alfred to run the Go binary. You should only have to do this once.
 
 **NOTE**: Before you try running the workflow for the first time, check whether you have the option 'Show latest query if within 5 minutes' in Alfred's Preferences > Advanced window checked. If so, uncheck it before trying to run the workflow for the first time. If you don't, the warning message about permissions will block you from running any other command in Alfred until you have fixed the permissions. You can safely re-enable the option again after fixing permissions.
 
