@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"regexp"
 
 	aw "github.com/deanishe/awgo"
 )
@@ -18,7 +19,8 @@ type file struct {
 }
 
 func expandPath(path string) string {
-	return strings.ReplaceAll(path, "~", os.Getenv("HOME"))
+	re := regexp.MustCompile(`^~`)
+	return re.ReplaceAllString(path, os.Getenv("HOME"))
 }
 
 // setup gets the JD_DIR workflow variable
